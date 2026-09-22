@@ -78,7 +78,7 @@ El archivo de entrada de la aplicación es:
 
 `app.py`
 
-Para un despliegue externo deben conservarse el modelo serializado ubicado en `artifacts/modelo_seleccionado.joblib`, el archivo `model_metadata.json` y las dependencias definidas en `requirements.txt`.
+Para un despliegue externo deben conservarse el modelo serializado ubicado en `artifacts/modelo_seleccionado.joblib`, el archivo `artifacts/model_metadata.json` y las dependencias definidas en `requirements.txt`.
 
 Antes de utilizar infraestructura externa debe verificarse que las políticas de manejo de información permitan almacenar y procesar espectros FTIR fuera de la infraestructura autorizada.
 
