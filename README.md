@@ -19,6 +19,8 @@ El repositorio no contiene la base `PRO_CRUD2.xlsx`. Solo incluye el pipeline se
 - Trazabilidad de la versión y hash del modelo.
 - Descarga de resultados, controles QA, trazabilidad y espectro en Excel.
 
+> **Nota:** este repositorio contiene el código y el modelo necesarios para ejecutar el prototipo. La interfaz Streamlit debe ejecutarse localmente o desplegarse en un servicio compatible.
+> 
 ## Formatos de entrada
 
 ### Horizontal
@@ -50,7 +52,7 @@ Requiere Python 3.11. La versión de scikit-learn debe permanecer en 1.9.0 porqu
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-streamlit run app.py
+python -m streamlit run app.py
 ```
 
 En Windows, la activación del entorno es:
@@ -68,11 +70,17 @@ docker run --rm -p 8501:8501 ftir-destilacion
 
 La aplicación queda disponible en `http://localhost:8501`.
 
-## Despliegue desde un repositorio privado
+## Despliegue
 
-El contenedor puede desplegarse en un servidor corporativo o en un servicio de contenedores. Para Streamlit Community Cloud se debe conectar la cuenta de GitHub, autorizar acceso al repositorio privado y seleccionar `app.py` como archivo de entrada. La documentación oficial explica la [conexión con repositorios privados](https://docs.streamlit.io/deploy/streamlit-community-cloud/get-started/connect-your-github-account) y el [proceso de despliegue](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/deploy).
+La aplicación puede desplegarse desde este repositorio de GitHub en un servidor, contenedor Docker o servicio compatible con aplicaciones Streamlit.
 
-Antes de usar una nube externa, se debe confirmar que la política de manejo de información permite almacenar el modelo y procesar espectros fuera de la infraestructura corporativa.
+El archivo de entrada de la aplicación es:
+
+`app.py`
+
+Para un despliegue externo deben conservarse el modelo serializado ubicado en `artifacts/modelo_seleccionado.joblib`, el archivo `model_metadata.json` y las dependencias definidas en `requirements.txt`.
+
+Antes de utilizar infraestructura externa debe verificarse que las políticas de manejo de información permitan almacenar y procesar espectros FTIR fuera de la infraestructura autorizada.
 
 ## Pruebas
 
